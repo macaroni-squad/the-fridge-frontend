@@ -11,10 +11,10 @@ const userFunc = require('./user-functions');
 
 // all jquery event listeners should go here
 let userHandler = function() {
-  $('.sign-up').on('submit', userFunc.signUp);
-  $('.sign-in').on('submit', userFunc.signIn);
-  $('.sign-out').on('click', userFunc.signOut);
-  $('.change-password').on('submit', userFunc.changePassword);
+  $('#sign-up').on('submit', userFunc.signUp);
+  $('#sign-in').on('submit', userFunc.signIn);
+  $('#sign-out').on('click', userFunc.signOut);
+  $('#change-password').on('submit', userFunc.changePassword);
 };
 
 $(document).ready(() => {
