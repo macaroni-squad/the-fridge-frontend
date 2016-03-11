@@ -4,3 +4,7 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 .btn {
   margin: 10px;
 }
+
+.modal-backdrop {
+    z-index: 1020;
+}
