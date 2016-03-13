@@ -17,8 +17,10 @@ const signUp = function(e) {
     data: formData
   }).done(function(data){
     console.log(data);
+    console.log("successfully signed up");
   }).fail(function(jqxhr) {
     console.error(jqxhr);
+    console.log("sign up failed");
   });
 };
 
@@ -33,29 +35,36 @@ const signIn = function(e) {
     data: formData
   }).done(function(data){
       assignUserData(data);
+      console.log(data);
+      console.log("successfully signed in");
   }).fail(function(jqxhr) {
     console.error(jqxhr);
+    console.log("sign in failed");
   });
 };
 
+// remember to use underscore id in all ajax
 const signOut = function() {
   if (!globalObjects.user) {
     console.error('Wrong!');
   }
 
   $.ajax({
-    url: globalObjects.baseUrl + '/sign-out/' + globalObjects.user.id,
+    url: globalObjects.baseUrl + '/sign-out/' + globalObjects.user._id,
     method: 'DELETE',
     headers: {
       Authorization: 'Token token=' + globalObjects.user.token,
     }
   }).done(function() {
     globalObjects.user = {};
+    console.log("successfully signed out");
   }).fail(function(data) {
     console.error(data);
+    console.log("sign out failed");
   });
 };
 
+// remember to use underscore id in all ajax
 const changePassword = function(e) {
   e.preventDefault();
   if (!globalObjects.user) {
@@ -64,7 +73,7 @@ const changePassword = function(e) {
 
   var formData = new FormData(e.target);
   $.ajax({
-    url: globalObjects.baseUrl + '/change-password/' + globalObjects.user.id,
+    url: globalObjects.baseUrl + '/change-password/' + globalObjects.user._id,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + globalObjects.user.token,
@@ -74,8 +83,10 @@ const changePassword = function(e) {
     data: formData,
   }).done(function(data) {
     console.log(data);
+    console.log("password successfully changed");
   }).fail(function(jqxhr) {
     console.error(jqxhr);
+    console.log("password change failed");
   });
 };
 
