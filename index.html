@@ -16,13 +16,13 @@
         <!-- Welcome message -->
         <p class="navbar-text">Welcome Username</p>
 
-        <!-- Sign in modal start -->
+        <!-- Nav bar buttons -->
         <button class="btn pull-right btn-primary btn-md sign-up" data-toggle="modal" data-target="#signUpModal">Sign Up</button>
         <button class="btn pull-right btn-primary btn-md sign-in" data-toggle="modal" data-target="#signInModal">Sign In</button>
         <button type="button" id="sign-out" class="btn pull-right btn-primary btn-md sign-out">Sign Out</button>
         <button class="btn pull-right btn-primary btn-md change-password" data-toggle="modal" data-target="#passwordModal">Change Password</button>
 
-        <!-- Sign in modal -->
+        <!-- Sign up modal -->
         <div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
           <div class="modal-dialog">
             <div class="modal-content">
@@ -167,5 +167,54 @@
 
     <body class="container-fluid">
 
+    <button class="btn pull-right btn-primary btn-md upload-button" data-toggle="modal" data-target="#uploadModal">Upload File</button>
+    <h1>Test</h1>
+      <!-- Sign up modal -->
+      <div class="modal fade" id="uploadModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <!-- Sign Up Modal Header -->
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">
+                       <span aria-hidden="true">&times;</span>
+                       <span class="sr-only">Close</span>
+                </button>
+              <h4 class="modal-title" id="myModalLabel">
+                    Upload File
+                </h4>
+            </div>
+
+            <!-- Upload Modal Body -->
+            <div class="modal-body">
+
+              <form id="upload-form" enctype="multipart/form-data">
+                <div class="form-group">
+                  <label for="file-title">File Title</label>
+                  <input type="text" class="form-control" name="file[title]" placeholder="Your name for your file" />
+                </div>
+                <div class="form-group">
+                  <label for="file-comment">Description</label>
+                  <input type="text" class="form-control" name="file[description]" maxlength="200" placeholder="Short (200 char) description" />
+                </div>
+                <div class="form-group">
+                  <label for="file-file">File to Upload</label>
+                  <input type="file" class="form-control" name="file[file]" value="" />
+                </div>
+                <input type="submit" class="btn btn-primary" value="Upload">
+              </form>
+
+
+            </div>
+
+            <!-- Sign Up Modal Footer -->
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">
+                            Close
+                </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End Sign Up Modal -->
     </body>
 </html>
