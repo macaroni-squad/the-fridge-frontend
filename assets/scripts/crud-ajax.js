@@ -24,6 +24,44 @@ let createFile = function(e) {
   });
 };
 
+const updateFileData = function(e) {
+  e.preventDefault();
+  let formData = new FormData(e.target);
+  // let fileId = $(e.target).attr('data-id');
+  $.ajax({
+    url: globalObjects.baseUrl + '/files/' /* + fileId */,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + globalObjects.user.token,
+    },
+    contentType: false,
+    processData: false,
+    data: formData
+  }).done(function(data){
+      console.log(data);
+  }).fail(function(err) {
+    console.error(err);
+  });
+};
+
+const deleteFile = function(e) {
+  e.preventDefault();
+  // let fileId = $(e.target).attr('data-id');
+  $.ajax({
+    url: globalObjects.baseUrl + '/files/' /* + fileId */,
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + globalObjects.user.token,
+    }
+  }).done(function(data){
+      console.log(data);
+  }).fail(function(err) {
+    console.error(err);
+  });
+};
+
 module.exports = {
-  createFile
+  createFile,
+  updateFileData,
+  deleteFile,
 };
