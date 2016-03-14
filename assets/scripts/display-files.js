@@ -29,6 +29,7 @@ const extractFolders = function(filepaths) {
 const extractLocations = function(files) {
   let downloadLinks = [];
   files.forEach(function(file) {
+    console.log(file.title);
     downloadLinks.push(file.location);
   });
   return downloadLinks;
@@ -58,6 +59,7 @@ let getFiles = function() {
     // },
     dataType: 'json'
   }).done(function(response){
+    console.log(response);
     console.log(response.files);
     showFilesByFolder(response.files);
   }).fail(function(jqxhr) {
@@ -65,6 +67,6 @@ let getFiles = function() {
   });
 };
 
-getFiles();
+// getFiles();
 
 module.exports = getFiles;

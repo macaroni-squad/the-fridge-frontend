@@ -1,6 +1,7 @@
 'use strict';
 
 const globalObjects = require('./global-objects');
+const getFiles = require('./display-files.js');
 
 const assignUserData = function(data) {
   globalObjects.user = data.user;
@@ -35,6 +36,7 @@ const signIn = function(e) {
     data: formData
   }).done(function(data){
       assignUserData(data);
+      getFiles();
       console.log(data);
       console.log("successfully signed in");
   }).fail(function(jqxhr) {
