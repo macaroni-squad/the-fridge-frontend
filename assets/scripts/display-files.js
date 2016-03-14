@@ -26,8 +26,7 @@ const makeUnique = function(folders) {
   return uniqueFolders;
 };
 
-// this function adds a folder key and value to each file
-let displayFiles = function(files){
+const assignFoldersTo = function (files) {
   let folders = [];
   files.forEach(function(file) {
     if (file.location === undefined) {
@@ -37,7 +36,12 @@ let displayFiles = function(files){
     }
     folders.push(file.folder);
   });
-  displayFolders(makeUnique(folders));
+    displayFolders(makeUnique(folders));
+};
+
+// this function adds a folder key and value to each file
+let displayFiles = function(files){
+  assignFoldersTo(files);
   let filesTemplate = require('./file-lister.handlebars');
   files.forEach(function(file) {
     $(`.${file.folder}`).append(filesTemplate({ file }));
