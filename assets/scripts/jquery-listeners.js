@@ -3,6 +3,7 @@
 // globalObjects is an object/dictionary, containing keys "user" and "baseUrl"
 // "user" contains the user data which our server returns. "baseUrl" is set at document.ready
 const globalObjects = require('./global-objects');
+const fileCrud = require('./crud-ajax');
 
 // after this require command, "userFunc" is an object/dictionary, containing...
 // keys: "signUp", "signIn", "signOut", and "changePassword"
@@ -17,10 +18,15 @@ let userHandler = function() {
   $('#change-password').on('submit', userFunc.changePassword);
 };
 
+let crudActions = function() {
+  $('#upload-form').on('submit', fileCrud.createFile);
+};
+
 $(document).ready(() => {
   // checks whether page is open in localhost, and sets the baseUrl based on that
   document.location.hostname === 'localhost' ?
     globalObjects.baseUrl = 'http://localhost:3000' :
     globalObjects.baseUrl = ''; // set to our heroku app URL
   userHandler(); // Calls jquery listener definintion function, above
+  crudActions();
 });
