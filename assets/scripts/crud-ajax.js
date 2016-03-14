@@ -18,6 +18,7 @@ let createFile = function(e) {
   }).done(function(data) {
     console.log(data);
     console.log('File created!');
+    $('#uploadModal').modal('hide');
   }).fail(function(jqxhr) {
     console.error(jqxhr);
   });

@@ -39,6 +39,7 @@ const signIn = function(e) {
       getFiles();
       console.log(data);
       console.log("successfully signed in");
+      $('#signInModal').modal('hide');
   }).fail(function(jqxhr) {
     console.error(jqxhr);
     console.log("sign in failed");
