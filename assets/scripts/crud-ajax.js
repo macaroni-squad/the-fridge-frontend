@@ -28,7 +28,7 @@ const createFile = function(e) {
 const updateFile = function(e) {
   e.preventDefault();
   let formData = new FormData(e.target);
-  let fileId = $(e.target).attr('data-id');
+  // formData.append("files[_owner]", globalObjects.user._id);
   console.log(globalObjects.editId);
   $.ajax({
     url: globalObjects.baseUrl + '/files/' + globalObjects.editId,

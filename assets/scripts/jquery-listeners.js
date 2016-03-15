@@ -23,7 +23,7 @@ let crudActions = function() {
 
 // Start Update Modal and Button
   // The Modal
-  $('.files-container').on('submit', '.update-file', function(e) {
+  $('.files-container').on('click', '.update-file', function(e) {
     e.preventDefault();
     globalObjects.editId = $(e.target).attr('data-id');
   });
