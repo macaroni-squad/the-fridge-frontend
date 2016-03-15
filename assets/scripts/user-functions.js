@@ -19,8 +19,11 @@ const signUp = function(e) {
   }).done(function(data){
     console.log(data);
     console.log("successfully signed up");
+    $( "div.success" ).fadeIn( 300 ).delay( 1500 ).fadeOut( 400 );
+    $('#signUpModal').modal('hide');
   }).fail(function(jqxhr) {
     console.error(jqxhr);
+    $( "div.failure" ).fadeIn( 300 ).delay( 1500 ).fadeOut( 400 );
     console.log("sign up failed");
   });
 };
@@ -39,7 +42,7 @@ const signIn = function(e) {
       getFiles();
       console.log(data);
       console.log("successfully signed in");
-
+      $( "div.success" ).fadeIn( 300 ).delay( 1500 ).fadeOut( 400 );
       $('.navbar-text').html("Welcome " + globalObjects.user.email);
       $('#signInModal').modal('hide');
       $('.bgimage').hide();
@@ -47,8 +50,11 @@ const signIn = function(e) {
       $('#about').hide();
       $('.bg-primary').hide();
       $('.underbody').hide();
+      $('.sign-up').hide();
+      $('.sign-in').hide();
   }).fail(function(jqxhr) {
     console.error(jqxhr);
+    $( "div.failure" ).fadeIn( 300 ).delay( 1500 ).fadeOut( 400 );
     console.log("sign in failed");
   });
 };
@@ -68,8 +74,18 @@ const signOut = function() {
   }).done(function() {
     globalObjects.user = {};
     console.log("successfully signed out");
+    $('.navbar-text').html("Welcome!");
+    $('.bgimage').show();
+    $('#contact').show();
+    $('#about').show();
+    $('.bg-primary').show();
+    $('.underbody').show();
+    $('.sign-up').show();
+    $('.sign-in').show();
+    $('.files-container').hide();
   }).fail(function(data) {
     console.error(data);
+    $( "div.failure" ).fadeIn( 300 ).delay( 1500 ).fadeOut( 400 );
     console.log("sign out failed");
   });
 };
@@ -94,8 +110,11 @@ const changePassword = function(e) {
   }).done(function(data) {
     console.log(data);
     console.log("password successfully changed");
+    $( "div.success" ).fadeIn( 300 ).delay( 1500 ).fadeOut( 400 );
+    $('#passwordModal').modal('hide');
   }).fail(function(jqxhr) {
     console.error(jqxhr);
+    $( "div.failure" ).fadeIn( 300 ).delay( 1500 ).fadeOut( 400 );
     console.log("password change failed");
   });
 };
