@@ -1,8 +1,90 @@
+@import url(https://fonts.googleapis.com/css?family=Righteous);
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
+// $background: #143D55;
+$background: #0E394F;
+$font-color: #f0f0f0;
+$sec-color: #96AD3E;
+$footer-color: #09303B;
+$red: #f00;
+$white: #fff;
+$black: #000;
+$grey: #CCCCCC;
+$offgreen: #96AD3E;
+$box-hover: #878787;
+
 body {
+  background-color: $background;
   margin-top: 80px;
+  color: $font-color;
+  font-family: 'Righteous', cursive;
+  font-size: 14px;
+  display: block;
+}
+
+strong {
+  color: $sec-color;
+}
+
+h1,
+h3 {
+  text-align: center;
+  clear: both;
+}
+
+section {
+  display: block;
+  padding: 100px;
+  width: 100%;
+}
+
+p {
+  font-size: 1.2em;
+}
+
+.light {
+  border-color: $background;
+}
+
+#contact {
+  background-color: $background;
+  min-height: 400px;
+}
+
+#about {
+  background-color: $grey;
+}
+
+.bgimage {
+  width: 100%;
+  padding: 1em;
+}
+
+.underbody {
+  clear: both;
+  position: relative;
+  background-color: $grey;
+  color: $offgreen;
+  margin: 0 auto;
+}
+
+.bg-primary {
+    background-color: $grey;
+    color: $offgreen;
+}
+
+button {
+  background-color: #fff;
+  border-color: #ccc;
+  margin-bottom: 0;
+  text-align: center;
+  padding: 6px 12px;
+  vertical-align: middle;
+  overflow: visible;
+  white-space: nowrap;
+  border: 1px solid transparet;
+  font-size: 1.5em;
 }
 
 .btn {
@@ -11,4 +93,13 @@ body {
 
 .modal-backdrop {
     z-index: 1020;
+}
+
+footer {
+  background-color: $footer-color;
+  font-size: 9em;
+  margin-top: .5em;
+  padding: .3em;
+  text-align: center;
+  color: $white;
 }
