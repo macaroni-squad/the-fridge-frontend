@@ -40,6 +40,7 @@ const signIn = function(e) {
       console.log(data);
       console.log("successfully signed in");
 
+      $('.navbar-text').html("Welcome " + globalObjects.user.email);
       $('#signInModal').modal('hide');
       $('.bgimage').hide();
       $('#contact').hide();
