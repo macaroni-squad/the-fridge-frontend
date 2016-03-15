@@ -2,53 +2,52 @@
 
 const globalObjects = require('./global-objects');
 
-let displayFolder = function(folder){
+let displayFolders = function(folders){
   let foldersTemplate = require('./folders.handlebars');
-  console.log("displayFolder was callled");
-  $('.files-container').append(foldersTemplate({ folder }));
+  console.log("displayFolders was callled");
+  $('.files-container').append(foldersTemplate({ folders }));
 };
 
-let displayFile = function(file, folder){
-  console.log(file);
-  let filesTemplate = require('./files.handlebars');
-  $(`.${folder}`).append(filesTemplate({ file }));
+// this function pulls the folder name from the S3 file url, or assigns "none" if it breaks
+const extractFolder = function(location) {
+  if ((location.split("/"))[3] === undefined) {
+    return "none";
+  } else {
+  return (location.split("/"))[3];
+  }
 };
 
-const extractFolders = function(filepaths) {
-  let folders = [];
-  filepaths.forEach(function(filepath) {
-    folders.push((filepath.location.split("/"))[3]);
-  });
-
+// takes an array of folders and removes duplicates
+const makeUnique = function(folders) {
   var uniqueFolders = folders.filter(function(elem, pos) {
     return folders.indexOf(elem) === pos;
   });
   return uniqueFolders;
 };
 
-const extractLocations = function(files) {
-  let downloadLinks = [];
+const assignFoldersTo = function (files) {
+  let folders = [];
   files.forEach(function(file) {
-    console.log(file.title);
-    downloadLinks.push(file.location);
+    if (file.location === undefined) {
+      file.folder = "none";
+    } else {
+      file.folder = extractFolder(file.location);
+    }
+    folders.push(file.folder);
   });
-  return downloadLinks;
+    displayFolders(makeUnique(folders));
 };
 
-const showFilesByFolder = function(files) {
-  let downloadLinks = extractLocations(files);
-  let folders = extractFolders(files);
-  folders.forEach(function(folder) {
-    displayFolder(folder);
-    let filesInThisFolder = [];
-    downloadLinks.forEach(function(downloadLink) {
-      if ((downloadLink.split("/"))[3] === folder) {
-        filesInThisFolder.push(downloadLink);
-        displayFile(downloadLink, folder);
-      }
-    });
+// this function adds a folder key and value to each file
+let displayFiles = function(files){
+  assignFoldersTo(files);
+  let filesTemplate = require('./file-lister.handlebars');
+  files.forEach(function(file) {
+    $(`.${file.folder}`).append(filesTemplate({ file }));
+    // $('.files-container').html(filesTemplate({ file })); do we want append or html here since it runs for each file?
   });
 };
+
 
 let getFiles = function() {
   $.ajax({
@@ -59,14 +58,11 @@ let getFiles = function() {
     // },
     dataType: 'json'
   }).done(function(response){
-    console.log(response);
-    console.log(response.files);
-    showFilesByFolder(response.files);
+    console.log("this get was called");
+    displayFiles(response.files);
   }).fail(function(jqxhr) {
     console.error(jqxhr);
   });
 };
-
-// getFiles();
 
 module.exports = getFiles;
