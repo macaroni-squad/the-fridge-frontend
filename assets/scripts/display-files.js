@@ -11,7 +11,7 @@ const globalObjects = require('./global-objects');
 let displayFiles = function(file){
   console.log(file);
   let filesTemplate = require('./file-lister.handlebars');
-  $('.files-container').append(filesTemplate({ file }));
+  $('.files-container').html(filesTemplate({ file }));
 };
 //
 const extractFolders = function(filepaths) {

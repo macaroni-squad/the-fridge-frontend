@@ -1,8 +1,9 @@
 'use strict';
 
 const globalObjects = require('./global-objects');
+const getFiles = require('./display-files.js');
 
-let createFile = function(e) {
+const createFile = function(e) {
   console.log('add file button works');
   e.preventDefault();
   let formData = new FormData(e.target);
@@ -27,9 +28,9 @@ let createFile = function(e) {
 const updateFileData = function(e) {
   e.preventDefault();
   let formData = new FormData(e.target);
-  // let fileId = $(e.target).attr('data-id');
+  let fileId = $(e.target).attr('data-id');
   $.ajax({
-    url: globalObjects.baseUrl + '/files/' /* + fileId */,
+    url: globalObjects.baseUrl + '/files/' + fileId ,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + globalObjects.user.token,
@@ -44,17 +45,17 @@ const updateFileData = function(e) {
   });
 };
 
-const deleteFile = function(e) {
-  e.preventDefault();
-  // let fileId = $(e.target).attr('data-id');
+const deleteFile = function() {
   $.ajax({
-    url: globalObjects.baseUrl + '/files/' /* + fileId */,
+    url: globalObjects.baseUrl + '/files/' + globalObjects.editId,
     method: 'DELETE',
     headers: {
       Authorization: 'Token token=' + globalObjects.user.token,
     }
   }).done(function(data){
-      console.log(data);
+    console.log(data);
+    $('#deleteFileModal').modal('hide');
+    getFiles();
   }).fail(function(err) {
     console.error(err);
   });
