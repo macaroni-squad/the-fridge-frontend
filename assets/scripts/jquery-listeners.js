@@ -21,6 +21,16 @@ let userHandler = function() {
 let crudActions = function() {
   $('#upload-form').on('submit', fileCrud.createFile);
 
+// Start Update Modal and Button
+  // The Modal
+  $('.files-container').on('click', '.update-file', function(e) {
+    e.preventDefault();
+    globalObjects.editId = $(e.target).attr('data-id');
+  });
+  //The Button, which updates the file in MongoDB
+  $('#update-form').on('submit', fileCrud.updateFile);
+
+
 // Start Delete Modal and Button
   // The Modal
   $('.files-container').on('click', '.delete-file', function(e) {

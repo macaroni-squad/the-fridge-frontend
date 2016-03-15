@@ -25,12 +25,13 @@ const createFile = function(e) {
   });
 };
 
-const updateFileData = function(e) {
+const updateFile = function(e) {
   e.preventDefault();
   let formData = new FormData(e.target);
-  let fileId = $(e.target).attr('data-id');
+  // formData.append("files[_owner]", globalObjects.user._id);
+  console.log(globalObjects.editId);
   $.ajax({
-    url: globalObjects.baseUrl + '/files/' + fileId ,
+    url: globalObjects.baseUrl + '/files/' + globalObjects.editId,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + globalObjects.user.token,
@@ -40,6 +41,7 @@ const updateFileData = function(e) {
     data: formData
   }).done(function(data){
       console.log(data);
+      getFiles();
   }).fail(function(err) {
     console.error(err);
   });
@@ -63,6 +65,6 @@ const deleteFile = function() {
 
 module.exports = {
   createFile,
-  updateFileData,
+  updateFile,
   deleteFile,
 };
