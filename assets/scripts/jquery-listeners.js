@@ -20,6 +20,16 @@ let userHandler = function() {
 
 let crudActions = function() {
   $('#upload-form').on('submit', fileCrud.createFile);
+
+// Start Delete Modal and Button
+  // The Modal
+  $('.files-container').on('click', '.delete-file', function(e) {
+    e.preventDefault();
+    globalObjects.editId = $(e.target).attr('data-id');
+  });
+  // The Button, which deletes the file in the mongo db
+  $('.delete-file-form').on('click', fileCrud.deleteFile);
+// End Delete Modal and Button
 };
 
 $(document).ready(() => {
