@@ -25,12 +25,6 @@ const makeUnique = function(folders) {
   return uniqueFolders;
 };
 
-let displayFolders = function(folders){
-  let foldersTemplate = require('./folders.handlebars');
-  console.log("displayFolders was callled");
-  $('.files-container').append(foldersTemplate({ folders }));
-};
-
 const assignFoldersTo = function (files) {
   let folders = [];
   files.forEach(function(file) {
@@ -64,7 +58,7 @@ let getFiles = function() {
     // },
     dataType: 'json'
   }).done(function(response){
-    console.log("this get was called")
+    console.log("this get was called");
     displayFiles(response.files);
   }).fail(function(jqxhr) {
     console.error(jqxhr);
