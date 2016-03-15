@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
-
+      <title>The Fridge - Store all your goods!</title>
       <script src="vendor.bundle.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="bundle.js" type="text/javascript" charset="utf-8" defer></script>
-
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     </head>
 
     <header><!-- Nav bar start -->
@@ -166,60 +165,120 @@
 </header>
 
     <body class="container-fluid">
+      <button class="btn pull-right btn-primary btn-md upload-button" data-toggle="modal" data-target="#uploadModal">Upload File</button>
 
-    <button class="btn pull-right btn-primary btn-md upload-button" data-toggle="modal" data-target="#uploadModal">Upload File</button>
-    <h1>Test</h1>
-      <!-- Sign up modal -->
-      <div class="modal fade" id="uploadModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <!-- Sign Up Modal Header -->
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal">
-                       <span aria-hidden="true">&times;</span>
-                       <span class="sr-only">Close</span>
-                </button>
-              <h4 class="modal-title" id="myModalLabel">
-                    Upload File
-                </h4>
-            </div>
+      <div class="title">
+        <h1>The Fridge</h1>
+        <h3><strong>Put it in our fridge!</strong></h3>
+  			<img class="bgimage" src="http://ivsdirect.com/wp-content/uploads/2016/01/open-refrigerator-in-kitchen-monogram-fd-doors-open.jpg" height=650px>
+      </div>
 
-            <!-- Upload Modal Body -->
-            <div class="modal-body">
+        <!-- Sign up modal -->
+        <div class="modal fade" id="uploadModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <!-- Sign Up Modal Header -->
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                         <span aria-hidden="true">&times;</span>
+                         <span class="sr-only">Close</span>
+                  </button>
+                <h4 class="modal-title" id="myModalLabel">
+                      Upload File
+                  </h4>
+              </div>
 
-              <form id="upload-form" enctype="multipart/form-data">
-                <div class="form-group">
-                  <label for="file-title">File Title</label>
-                  <input type="text" class="form-control" name="file[title]" placeholder="Your name for your file" />
-                </div>
-                <div class="form-group">
-                  <label for="file-comment">Description</label>
-                  <input type="text" class="form-control" name="file[description]" maxlength="200" placeholder="Short (200 char) description" />
-                </div>
-                <div class="form-group">
-                  <label for="file-file">File to Upload</label>
-                  <input type="file" class="form-control" name="file[file]" value="" />
-                </div>
-                <input type="submit" class="btn btn-primary" value="Upload">
-              </form>
+              <!-- Upload Modal Body -->
+              <div class="modal-body">
+
+                <form id="upload-form" enctype="multipart/form-data">
+                  <div class="form-group">
+                    <label for="file-title">File Title</label>
+                    <input type="text" class="form-control" name="file[title]" placeholder="Your name for your file" />
+                  </div>
+                  <div class="form-group">
+                    <label for="file-comment">Description</label>
+                    <input type="text" class="form-control" name="file[description]" maxlength="200" placeholder="Short (200 char) description" />
+                  </div>
+                  <div class="form-group">
+                    <label for="file-file">File to Upload</label>
+                    <input type="file" class="form-control" name="file[file]" value="" />
+                  </div>
+                  <input type="submit" class="btn btn-primary" value="Upload">
+                </form>
 
 
-            </div>
+              </div>
 
-            <!-- Sign Up Modal Footer -->
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">
-                            Close
-                </button>
+              <!-- Sign Up Modal Footer -->
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">
+                              Close
+                  </button>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <!-- End Sign Up Modal -->
 
-      <div class="files-container"></div>
+        <!-- End Sign Up Modal -->
+        <section class="col-lg-12 underbody">
+          <section class="bg-primary" id="about">
+             <div class="container">
+               <div class="row">
+                 <div class="col-lg-10 text-center">
+                   <h2 class="section-heading">We've got what you need!</h2>
+                   <hr class="light">
+                   <p class="text-faded">Some cool exerpt of The Fridge and all of its glory!</p>
+                   <a href="#signup" class="btn btn-default btn-xl page-scroll" data-toggle="modal" data-target="#signUpModal">Sign Up!</a>
+                 </div>
+               </div>
+             </div>
+           </section>
 
-
-
+           <section class="bg-primary" id="contact">
+             <div class="container">
+               <div class="row">
+                 <div class="col-lg-10 text-center">
+                     <h2 class="section-heading">Team Macaroni</h2>
+                     <hr class="light">
+                 </div>
+               </div>
+             </div>
+             <div class="col-lg-11 container">
+               <div class="row">
+                 <div class="col-lg-3 col-md-6 text-center">
+                   <div class="service-box">
+                     <i class="fa fa-4x fa-gamepad wow bounceIn text-primary" data-wow-delay=".1s"></i>
+                     <h3>Aaron Jordon</h3>
+                       <p class="text-muted">-desc/links-</p>
+                   </div>
+                 </div>
+                 <div class="col-lg-3 col-md-6 text-center">
+                   <div class="service-box">
+                     <i class="fa fa-4x fa-beer wow bounceIn text-primary" data-wow-delay=".2s"></i>
+                     <h3>Mike Brewster</h3>
+                     <p class="text-muted">-desc/links-</p>
+                   </div>
+                 </div>
+                 <div class="col-lg-3 col-md-6 text-center">
+                   <div class="service-box">
+                     <i class="fa fa-4x fa-star wow bounceIn text-primary" data-wow-delay=".3s"></i>
+                     <h3>Celena Toon</h3>
+                     <p class="text-muted">-desc/links-</p>
+                   </div>
+                 </div>
+                 <div class="col-lg-3 col-md-6 text-center">
+                   <div class="service-box">
+                     <i class="fa fa-4x fa-heart wow bounceIn text-primary" data-wow-delay=".4s"></i>
+                     <h3>Jen Weber</h3>
+                     <p class="text-muted">-desc/links-</p>
+                   </div>
+                 </div>
+               </div>
+             </div>
+           </div>
+           </section>
+         </section>
+        <div class="files-container"></div>
     </body>
 </html>
