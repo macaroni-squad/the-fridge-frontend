@@ -25,12 +25,13 @@ const createFile = function(e) {
   });
 };
 
-const updateFileData = function(e) {
+const updateFile = function(e) {
   e.preventDefault();
   let formData = new FormData(e.target);
   let fileId = $(e.target).attr('data-id');
+  console.log(globalObjects.editId);
   $.ajax({
-    url: globalObjects.baseUrl + '/files/' + fileId ,
+    url: globalObjects.baseUrl + '/files/' + globalObjects.editId,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + globalObjects.user.token,
@@ -63,6 +64,6 @@ const deleteFile = function() {
 
 module.exports = {
   createFile,
-  updateFileData,
+  updateFile,
   deleteFile,
 };
