@@ -20,6 +20,8 @@ const createFile = function(e) {
     console.log(data);
     console.log('File created!');
     $('#uploadModal').modal('hide');
+    clearFiles();
+    getFiles();
   }).fail(function(jqxhr) {
     console.error(jqxhr);
   });
@@ -41,6 +43,7 @@ const updateFile = function(e) {
     data: formData
   }).done(function(data){
       console.log(data);
+      clearFiles();
       getFiles();
   }).fail(function(err) {
     console.error(err);
@@ -57,10 +60,15 @@ const deleteFile = function() {
   }).done(function(data){
     console.log(data);
     $('#deleteFileModal').modal('hide');
+    clearFiles();
     getFiles();
   }).fail(function(err) {
     console.error(err);
   });
+};
+
+let clearFiles = function() {
+  $('.files-container').empty();
 };
 
 module.exports = {

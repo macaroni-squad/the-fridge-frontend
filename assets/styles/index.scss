@@ -55,6 +55,7 @@ p {
 #about {
   background-color: $grey;
   color: $background;
+  padding-top: 2em;
 }
 
 .bgimage {
@@ -124,11 +125,23 @@ button {
     z-index: 1020;
 }
 
-footer {
-  background-color: $footer-color;
-  font-size: 9em;
-  margin-top: .5em;
-  padding: .3em;
-  text-align: center;
-  color: $white;
+.alert-box {
+	padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.success {
+    color: #3c763d;
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+    display: none;
+}
+
+.failure {
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+    display: none;
 }
