@@ -41,6 +41,7 @@ const updateFile = function(e) {
     data: formData
   }).done(function(data){
       console.log(data);
+      getFiles();
   }).fail(function(err) {
     console.error(err);
   });
