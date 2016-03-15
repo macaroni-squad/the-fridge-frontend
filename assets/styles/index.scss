@@ -54,6 +54,7 @@ p {
 
 #about {
   background-color: $grey;
+  color: $background;
 }
 
 .bgimage {
@@ -61,12 +62,40 @@ p {
   padding: 1em;
 }
 
+.single-file-container {
+  display: inline-block;
+  padding: 2em;
+  margin-bottom: 1em;
+}
+
+.folders-and-files {
+  display: block;
+}
+
+.folder-container {
+  display: block;
+  border: 3px solid $offgreen;
+  border-radius: 3px;
+  padding: 1em;
+  margin-bottom: 1em;
+  min-height: 400px;
+  box-sizing: content-box;
+}
+
+.file-btns {
+  text-align: center;
+}
+
+.files-container {
+  float: left;
+}
+
 .underbody {
   clear: both;
   position: relative;
   background-color: $grey;
   color: $offgreen;
-  margin: 0 auto;
+  padding-top: 2em;
 }
 
 .bg-primary {
