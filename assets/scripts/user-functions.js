@@ -39,7 +39,13 @@ const signIn = function(e) {
       getFiles();
       console.log(data);
       console.log("successfully signed in");
+
       $('#signInModal').modal('hide');
+      $('.bgimage').hide();
+      $('#contact').hide();
+      $('#about').hide();
+      $('.bg-primary').hide();
+      $('.underbody').hide();
   }).fail(function(jqxhr) {
     console.error(jqxhr);
     console.log("sign in failed");
