@@ -1,10 +1,12 @@
 # General Assembly WDI Project 3: -The Fridge- File Bucket
 
-For this project, we were assigned to randomized teams and given a task to have fully implemented and ready for presentation, one week later. We named our team Macaroni Squad; we were assigned with creating a file bucket.
+For this project, we were assigned to randomized teams and given a task, which we were to have fully implemented and ready for presentation one week later. We named our team Macaroni Squad, and we were assigned with creating a file bucket.
+
+[Back End Github Repo with API Documentation](https://github.com/macaroni-squad/the-fridge-backend)
 
 ### The Fridge - What It Is, What It Does
 
-The goal of this project was to create a file storage system, which would allow user to upload file to a remote server and access them from any computer from which they might log in. In addition to creating a front-end interface to allow users to upload files, the app also stores metadata about the files in a database which is accessed by the app.
+The goal of this project was to create a file storage system, which would allow user to upload file to a remote server and access them from any computer from which they might log in. In addition to creating a front end interface to allow users to upload files, the app also stores metadata about the files in a database which is accessed by the app.
 
 ### User Stories
 
@@ -30,7 +32,7 @@ In order to implement our front end goals, we knew we would be starting with the
 
 ### Team Approach
 
-This is the first time any of us has had to program an app as a part of a team, so we took several steps to minimize the difficulty of coordinating with other programmers. We agreed to do as much of the work as possible together, meaning in the same room. We split up responsibilities on a task-by-task basis, stopping often to check in on what each team member was working on, and reassigning to other tasks as necessary. Several times, we all decided to drop everything else and all tackle the same problem, leveraging our different skills and approaches to ensure that a "bottleneck" problem did not derail us from our work flow.
+This is the first time any of us has had to program an app as a part of a team, so we took several steps to minimize the difficulty of coordinating with other programmers. We agreed to do as much of the work as possible together, meaning in the same room. We split up responsibilities on a task-by-task basis, stopping often to check in on what each team member was working on, and reassigning to other tasks as necessary. Several times, we decided to drop everything else and all tackle the same problem, leveraging our different skills and approaches to ensure that a "bottleneck" problem did not derail us from our work flow.
 
 Without ever explicitly agreeing on it, our team seemed to emphasize putting our egos aside and sublimating  any personal wants or needs for the benefit of the group. Tasks were accomplished without resentment, and problems were confronted without blame.
 
