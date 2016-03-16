@@ -3,6 +3,10 @@
 const globalObjects = require('./global-objects');
 const getFiles = require('./display-files.js');
 
+let clearFiles = function() {
+  $('.files-container').empty();
+};
+
 const createFile = function(e) {
   console.log('add file button works');
   e.preventDefault();
@@ -45,6 +49,7 @@ const updateFile = function(e) {
       console.log(data);
       clearFiles();
       getFiles();
+      $('#updateFileModal').modal('hide');
   }).fail(function(err) {
     console.error(err);
   });
@@ -65,10 +70,6 @@ const deleteFile = function() {
   }).fail(function(err) {
     console.error(err);
   });
-};
-
-let clearFiles = function() {
-  $('.files-container').empty();
 };
 
 module.exports = {

@@ -13,6 +13,7 @@ $black: #000;
 $grey: #CCCCCC;
 $offgreen: #96AD3E;
 $box-hover: #878787;
+$dark-grey: #5A5E61;
 
 #about {
   background-color: $grey;
@@ -58,6 +59,12 @@ h3 {
   clear: both;
 }
 
+label,
+.modal-title,
+.delete-confirmation {
+  color: $dark-grey;
+}
+
 #contact {
   background-color: $background;
   min-height: 400px;
@@ -80,7 +87,7 @@ h3 {
   border-radius: 3px;
   padding: 1em;
   margin-bottom: 1em;
-  min-height: 400px;
+  // min-height: 400px;
   box-sizing: content-box;
 }
 
@@ -156,4 +163,9 @@ th {
 td {
     padding: 1em;
     max-width: 5em;
+}
+
+.update-file,
+.delete-file {
+  margin-top: 0;
 }
