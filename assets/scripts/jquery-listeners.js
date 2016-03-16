@@ -20,6 +20,7 @@ let userHandler = function() {
 };
 
 let crudActions = function() {
+
   $('#upload-form').on('submit', fileCrud.createFile);
 
 // Start Update Modal and Button
@@ -28,6 +29,22 @@ let crudActions = function() {
     e.preventDefault();
     // sets the editId in the global objects file
     globalObjects.editId = $(e.target).attr('data-id');
+      $.ajax({
+        //url: globalObjects.baseUrl + '/files/' + globalObjects.editId,
+        url: globalObjects.baseUrl + '/files/' + globalObjects.editId,
+        method: 'GET',
+        headers: {
+          Authorization: 'Token token=' + globalObjects.user.token,
+        },
+        dataType: 'json'
+      }).done(function(response){
+        console.log(response);
+        $('.title-field').val(response.file.title);
+        $('.description-field').val(response.file.description);
+        $('.folder-field').val(response.file.folder);
+      }).fail(function(jqxhr) {
+        console.error(jqxhr);
+      });
   });
   //The Button, which updates the file in MongoDB
   $('#update-form').on('submit', fileCrud.updateFile);
