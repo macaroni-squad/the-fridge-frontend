@@ -49,7 +49,7 @@ $(document).ready(() => {
   // checks whether page is open in localhost, and sets the baseUrl based on that
   document.location.hostname === 'localhost' ?
     globalObjects.baseUrl = 'http://localhost:3000' :
-    globalObjects.baseUrl = ''; // set to our heroku app URL
+    globalObjects.baseUrl = 'https://the-fridge-filebucket.herokuapp.com/'; // set to our heroku app URL
   userHandler(); // Calls jquery listener definintion function, above
   crudActions();
 });
