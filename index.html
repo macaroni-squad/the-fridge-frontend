@@ -1,20 +1,331 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>The Fridge - Store all your goods!</title>
 
+      <link rel='shortcut icon' href='fridge-favicon.ico' type='image/x-icon'/ >
       <script src="vendor.bundle.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="bundle.js" type="text/javascript" charset="utf-8" defer></script>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     </head>
-    <body class="container-fluid">
-      <h1>Example</h1>
 
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-      eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-      minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-      ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-      est laborum.</p>
+    <header><!-- Nav bar start -->
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+
+        <!-- Welcome message -->
+        <p class="navbar-text">Welcome!</p>
+
+        <!-- Nav bar buttons -->
+        <button class="btn pull-right btn-primary btn-md sign-up" data-toggle="modal" data-target="#signUpModal">Sign Up</button>
+        <button class="btn pull-right btn-primary btn-md sign-in" data-toggle="modal" data-target="#signInModal">Sign In</button>
+        <button type="button" id="sign-out" class="btn pull-right btn-primary btn-md sign-out">Sign Out</button>
+        <button class="btn pull-right btn-primary btn-md change-password" data-toggle="modal" data-target="#passwordModal">Change Password</button>
+
+        <!-- Sign up modal -->
+        <div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <!-- Sign Up Modal Header -->
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                   <span aria-hidden="true">&times;</span>
+                   <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">Sign Up</h4>
+              </div>
+
+              <!-- Sign Up Modal Body -->
+              <div class="modal-body">
+
+                <form id="sign-up" enctype="multipart/form-data">
+                  <div class="form-group">
+                    <label for="signUpEmail">Email address</label>
+                    <input type="email" class="form-control" name="credentials[email]" placeholder="Email" />
+                  </div>
+                  <div class="form-group">
+                    <label for="signUpPassword">Password</label>
+                    <input type="password" class="form-control" name="credentials[password]" placeholder="Password" />
+                  </div>
+                  <div class="form-group">
+                    <label for="InputPasswordConfirmation">Confirm Password</label>
+                    <input type="password" class="form-control" name="credentials[password_confirmation]" placeholder="Confirm Password" />
+                  </div>
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+              </div>
+
+              <!-- Sign Up Modal Footer -->
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End Sign Up Modal -->
+
+        <!-- Sign in modal -->
+        <div class="modal fade" id="signInModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <!-- Sign in modal Header -->
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                   <span aria-hidden="true">&times;</span>
+                   <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">Sign In</h4>
+              </div>
+
+              <!-- Sign In Modal Body -->
+              <div class="modal-body">
+
+                <form id="sign-in" enctype="multipart/form-data">
+                  <div class="form-group">
+                    <label for="signInEmail">Email address</label>
+                    <input type="email" class="form-control" name="credentials[email]" placeholder="Email" />
+                  </div>
+                  <div class="form-group">
+                    <label for="InputPassword">Password</label>
+                    <input type="password" class="form-control" name="credentials[password]" placeholder="Password" />
+                  </div>
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+              </div>
+
+              <!-- Sign In Modal Footer -->
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End sign in modal -->
+
+
+        <!-- Change password modal -->
+        <div class="modal fade" id="passwordModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <!-- Change Password Modal Header -->
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                   <span aria-hidden="true">&times;</span>
+                   <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">Change Password</h4>
+              </div>
+
+              <!-- Change Password Modal Body -->
+              <div class="modal-body">
+
+                <form id='change-password' role="form" enctype="multipart/form-data">
+                  <div class="form-group">
+                    <label for="newPassword">New Password</label>
+                    <input type="password" class="form-control" name="passwords[new]" placeholder="New Password" />
+                  </div>
+                  <div class="form-group">
+                    <label for="oldPassword">Old Password</label>
+                    <input type="password" class="form-control" name="passwords[old]" placeholder="Old Password" />
+                  </div>
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+
+
+              </div>
+
+              <!-- Change Password Modal Footer -->
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End change password modal -->
+
+      </div>
+    </nav>
+
+    <!-- end navbar -->
+</header>
+    <div class="alert-box success">Success!</div>
+    <div class="alert-box failure">Failure! Try again</div>
+    <body class="container-fluid">
+      <button class="btn pull-right btn-primary btn-md upload-button" data-toggle="modal" data-target="#uploadModal">Upload File</button>
+
+      <div class="title">
+        <h1>The Fridge</h1>
+        <h3><strong>Put it in our fridge!</strong></h3>
+  			<img class="bgimage" src="http://ivsdirect.com/wp-content/uploads/2016/01/open-refrigerator-in-kitchen-monogram-fd-doors-open.jpg">
+      </div>
+
+        <!-- Upload modal -->
+        <div class="modal fade" id="uploadModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <!-- Upload Modal Header -->
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                         <span aria-hidden="true">&times;</span>
+                         <span class="sr-only">Close</span>
+                  </button>
+                <h4 class="modal-title" id="myModalLabel">Upload File</h4>
+              </div>
+              <!-- Upload Modal Body -->
+              <div class="modal-body">
+                <form id="upload-form" enctype="multipart/form-data">
+                  <div class="form-group">
+                    <label for="file-title">File Title</label>
+                    <input type="text" class="form-control" name="file[title]" placeholder="Your name for your file" />
+                  </div>
+                  <div class="form-group">
+                    <label for="file-comment">Description</label>
+                    <input type="text" class="form-control" name="file[description]" maxlength="200" placeholder="Short (200 char) description" />
+                  </div>
+                  <div class="form-group">
+                    <label for="file-file">File to Upload</label>
+                    <input type="file" class="form-control" name="file[file]" value="" />
+                  </div>
+                  <div class="form-group">
+                    <label for="uploadFolder">What folder should this go in?</label>
+                    <input type="text" class="form-control" name="file[folder]" placeholder="folder name"/>
+                  </div>
+                  <input type="submit" class="btn btn-primary" value="Upload">
+                </form>
+              </div>
+              <!-- Upload Modal Footer -->
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- End Sign Up Modal -->
+        <section class="col-lg-12 underbody">
+          <section class="bg-primary" id="about">
+             <div class="container">
+               <div class="row">
+                 <div class="col-lg-10 text-center">
+                   <h2 class="section-heading">We've got what you need!</h2>
+                   <hr class="dark">
+                   <p class="text-faded">This is <strong>The Fridge</strong>. Its a web site for all of your data storage needs.
+                     You pick the file, and we will make sure it stays safe. Comeback later and view or dowload your files anytime.
+                     You can even share the link with your friends or family. But dont worry, they can view it but that can't change anything.
+                     We've got you back. Enjoy!</p>
+                   <a href="#signup" class="btn btn-default btn-xl page-scroll" data-toggle="modal" data-target="#signUpModal">Sign Up!</a>
+                 </div>
+               </div>
+             </div>
+           </section>
+
+           <section class="bg-primary" id="contact">
+             <div class="container">
+               <div class="row">
+                 <div class="col-lg-10 text-center">
+                     <h2 class="section-heading">Team Macaroni</h2>
+                     <hr class="light">
+                 </div>
+               </div>
+             </div>
+             <div class="col-lg-11 container">
+               <div class="row">
+                 <div class="col-lg-3 col-md-6 text-center">
+                   <div class="service-box">
+                     <i class="fa fa-4x fa-beer wow bounceIn text-primary" data-wow-delay=".2s"></i>
+                     <h3>Mike Brewster</h3>
+                     <p class="text-muted"><a href="https://github.com/MFBrewster" target="_blank">-desc/links-</a></p>
+                   </div>
+                 </div>
+                 <div class="col-lg-3 col-md-6 text-center">
+                   <div class="service-box">
+                     <i class="fa fa-4x fa-hand-peace-o wow bounceIn text-primary" data-wow-delay=".3s"></i>
+                     <h3>Celena Toon</h3>
+                     <p class="text-muted"><a href="https://github.com/seatuna" target="_blank">-desc/links-</a></p>
+                   </div>
+                 </div>
+                 <div class="col-lg-3 col-md-6 text-center">
+                   <div class="service-box">
+                     <i class="fa fa-4x fa-gamepad wow bounceIn text-primary" data-wow-delay=".1s"></i>
+                     <h3>Aaron Jordon</h3>
+                      <p class="text-muted"><a href="https://github.com/ajordon" target="_blank">-desc/links-</a></p>
+                   </div>
+                 </div>
+                 <div class="col-lg-3 col-md-6 text-center">
+                   <div class="service-box">
+                     <i class="fa fa-4x fa-bug wow bounceIn text-primary" data-wow-delay=".4s"></i>
+                     <h3>Jen Weber</h3>
+                     <p class="text-muted"><a href="https://github.com/jenweber" target="_blank">-desc/links-</a></p>
+                   </div>
+                 </div>
+               </div>
+             </div>
+           </div>
+           </section>
+         </section>
+      <!-- End Sign Up Modal -->
+
+      <div class="files-container"></div>
+      <!--Delete File Modal-->
+            <div class="modal fade" id="deleteFileModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Delete File</h4>
+                  </div>
+                  <div class="modal-body">
+                    <h4>Are you sure you want to delete this&hellip;?</h4>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="submit" class="btn btn-default delete-file-form">Delete</button>
+                  </div>
+                </div>
+              </div>
+            </div><!--End of Delete File modal-->
+
+
+            <!-- Update file modal -->
+            <div class="modal fade" id="updateFileModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <!-- Update File Modal Header -->
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                       <span aria-hidden="true">&times;</span>
+                       <span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">Update File</h4>
+                  </div>
+
+                  <!-- Update File Modal Body -->
+                  <div class="modal-body">
+
+                    <form class="form update-form" id="update-form" role="form">
+                      <div class="form-group">
+                        <label for="updateTitle">Title</label>
+                        <input type="text" class="form-control" name="files[title]" placeholder="Edit title"/>
+                      </div>
+                      <div class="form-group">
+                        <label for="updateDescription">Description</label>
+                        <input type="text" class="form-control" name="files[description]" placeholder="Edit description"/>
+                      </div>
+                      <div class="form-group">
+                        <label for="updateFolder">Folder</label>
+                        <input type="text" class="form-control" name="files[folder]" placeholder="Edit folder"/>
+                      </div>
+                      <button type="submit" class="btn btn-primary update-submit">Submit</button>
+                    </form>
+                  </div>
+
+                  <!-- Update File Modal Footer -->
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- End update file modal -->
     </body>
 </html>

@@ -1,0 +1,21 @@
+{{#each foldersInfo}}
+<div class="folders-and-files">
+  <div class="folder-container"><h4>{{this.foldertext}}</h4>
+    <hr class="light">
+    <div>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Update File</th>
+            <th>Delete File</th>
+          </tr>
+        </thead>
+        <tbody class="{{this.nospaces}}">
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+{{/each}}

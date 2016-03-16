@@ -1,2 +1,159 @@
+@import url(https://fonts.googleapis.com/css?family=Righteous);
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
+
+// $background: #143D55;
+$background: #0E394F;
+$font-color: #f0f0f0;
+$sec-color: #96AD3E;
+$footer-color: #09303B;
+$red: #f00;
+$white: #fff;
+$black: #000;
+$grey: #CCCCCC;
+$offgreen: #96AD3E;
+$box-hover: #878787;
+
+#about {
+  background-color: $grey;
+  color: $background;
+  padding-top: 2em;
+}
+
+.alert-box {
+	padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.bgimage {
+  width: 100%;
+  padding: 1em;
+}
+
+body {
+  background-color: $background;
+  margin-top: 80px;
+  color: $font-color;
+  font-family: 'Righteous', cursive;
+  font-size: 14px;
+  display: block;
+}
+
+.dark {
+  border-color: $background;
+}
+
+.failure {
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+    display: none;
+}
+
+h1,
+h3 {
+  text-align: center;
+  clear: both;
+}
+
+#contact {
+  background-color: $background;
+  min-height: 400px;
+}
+
+.single-file-container {
+  // display: inline-block;
+  padding: 2em;
+  margin-bottom: 1em;
+}
+
+.folders-and-files {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.folder-container {
+  display: block;
+  border: 3px solid $offgreen;
+  border-radius: 3px;
+  padding: 1em;
+  margin-bottom: 1em;
+  min-height: 400px;
+  box-sizing: content-box;
+}
+
+.files-container {
+  float: left;
+  width: 100%;
+}
+
+tr:nth-child(odd){
+  color: $background;
+}
+
+.underbody {
+  clear: both;
+  position: relative;
+  background-color: $grey;
+  color: $offgreen;
+  padding-top: 2em;
+}
+
+.bg-primary {
+    background-color: $grey;
+    color: $offgreen;
+}
+
+button {
+  background-color: #fff;
+  border-color: #ccc;
+  margin-bottom: 0;
+  text-align: center;
+  padding: 6px 12px;
+  vertical-align: middle;
+  overflow: visible;
+  white-space: nowrap;
+  border: 1px solid transparet;
+  font-size: 1.5em;
+}
+
+.btn {
+  margin: 10px;
+}
+
+.modal-backdrop {
+    z-index: 1020;
+}
+
+
+p {
+  font-size: 1.2em;
+}
+
+section {
+  display: block;
+  padding: 100px;
+  width: 100%;
+}
+
+.success {
+    color: #3c763d;
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+    display: none;
+}
+
+strong {
+  color: $sec-color;
+}
+
+th {
+  color: $white;
+}
+
+td {
+    padding: 1em;
+    max-width: 5em;
+}
