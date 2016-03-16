@@ -187,6 +187,10 @@
                     <label for="file-file">File to Upload</label>
                     <input type="file" class="form-control" name="file[file]" value="" />
                   </div>
+                  <div class="form-group">
+                    <label for="uploadFolder">What folder should this go in?</label>
+                    <input type="text" class="form-control" name="files[folder]" placeholder="folder name"/>
+                  </div>
                   <input type="submit" class="btn btn-primary" value="Upload">
                 </form>
               </div>
@@ -306,6 +310,10 @@
                       <div class="form-group">
                         <label for="updateDescription">Description</label>
                         <input type="text" class="form-control" name="files[description]" placeholder="Edit description"/>
+                      </div>
+                      <div class="form-group">
+                        <label for="updateFolder">Folder</label>
+                        <input type="text" class="form-control" name="files[folder]" placeholder="Edit folder"/>
                       </div>
                       <button type="submit" class="btn btn-primary update-submit">Submit</button>
                     </form>
