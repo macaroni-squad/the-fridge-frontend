@@ -8,19 +8,19 @@ The goal of this project was to create a file storage system, which would allow 
 
 ### User Stories
 
-![User Stories] (https://github.com/macaroni-squad/the-fridge-frontend/user-stories.jpg "User Stories")
+![User Stories] (https://github.com/macaroni-squad/the-fridge-frontend/blob/development/user-stories.jpg "User Stories")
 
 We wanted users to be able to do everything you would expect to be able to do on a file bucket: upload files from their computer; edit and delete remotely stored files, and download files onto their computer.
 
 ### Entity Relationship Diagram
 
-![Wireframe](https://github.com/macaroni-squad/the-fridge-frontend/erd.jpg "Entity Relationship Diagram")
+![ERD](https://github.com/macaroni-squad/the-fridge-frontend/blob/development/erd.jpg "Entity Relationship Diagram")
 
 Our ERD was necessarily simple: each user will have many files. We could potentially have had files belong to more than one user, but given the limited time available, we decided that files being shared among multiple users was beyond the scope of what we wanted to do.
 
 ### Wireframe
 
-![Wireframe](https://github.com/macaroni-squad/the-fridge-frontend/wireframe.jpg "Fridge Wireframe")
+![Wireframe](https://github.com/macaroni-squad/the-fridge-frontend/blob/development/wireframe.jpg "Fridge Wireframe")
 
 The major problem in terms of our front-end presentation was figuring out a clear and presentable way to present information about the files stored in the server. We had many options, but decided upon a list  format, organized by directory.
 
