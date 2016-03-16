@@ -87,7 +87,7 @@ label,
   border-radius: 3px;
   padding: 1em;
   margin-bottom: 1em;
-  min-height: 400px;
+  // min-height: 400px;
   box-sizing: content-box;
 }
 
@@ -163,4 +163,9 @@ th {
 td {
     padding: 1em;
     max-width: 5em;
+}
+
+.update-file,
+.delete-file {
+  margin-top: 0;
 }

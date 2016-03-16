@@ -52,6 +52,8 @@ const signIn = function(e) {
       $('.underbody').hide();
       $('.sign-up').hide();
       $('.sign-in').hide();
+      $('.change-password').show();
+      $('.sign-out').show();
       $('.upload-button').show();
   }).fail(function(jqxhr) {
     console.error(jqxhr);
@@ -83,7 +85,7 @@ const signOut = function() {
     $('.underbody').show();
     $('.sign-up').show();
     $('.sign-in').show();
-    $('.files-container').hide();
+    $('.files-container').empty();
     $('.upload-button').hide();
   }).fail(function(data) {
     console.error(data);

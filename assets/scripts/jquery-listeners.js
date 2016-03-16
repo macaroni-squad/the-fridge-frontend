@@ -17,6 +17,8 @@ let userHandler = function() {
   $('#sign-out').on('click', userFunc.signOut);
   $('#change-password').on('submit', userFunc.changePassword);
   $('.upload-button').hide();
+  $('.change-password').hide();
+  $('.sign-out').hide();
 };
 
 let crudActions = function() {
