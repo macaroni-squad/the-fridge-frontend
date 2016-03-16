@@ -10,6 +10,8 @@ const makeUnique = function(folders) {
   return uniqueFolders;
 };
 
+// Iterates through all files, grabs all the folder names, removes duplicates.
+// Then, a folder object containing the folder name and an html tag-friendly version of the folder name to handlebars
 const displayFolders = function(files){
   let foldersTemplate = require('./folders.handlebars');
   let folders = [];
@@ -22,25 +24,26 @@ const displayFolders = function(files){
   });
   folders = makeUnique(folders);
   let foldersInfo = folders.map(function(folder) {
-    return {nospaces: folder.replace(/\s+/g, ''), foldertext: folder};
+    return {nospaces: folder.replace(/\s+/g, '-').replace(/[^a-zA-Z-]/g, ''), foldertext: folder};
   });
-  console.log(foldersInfo);
   $('.files-container').append(foldersTemplate({ foldersInfo }));
 };
 
-// this function adds a folder key and value to each file
-let displayFiles = function(files){
+// If a file doesn't have a folder, assign Unsorted
+// append the file to a div with class matching its folder
+const displayFiles = function(files){
   let filesTemplate = require('./file-lister.handlebars');
   files.forEach(function(file) {
     if (file.folder === undefined) {
       file.folder = "Unsorted";
     }
-    $(`.${file.folder.replace(/\s+/g, '')}`).append(filesTemplate({ file }));
+    file.folder = file.folder.replace(/\s+/g, '-').replace(/[^a-zA-Z-]/g, '');
+    $(`.${file.folder}`).append(filesTemplate({ file }));
   });
 };
 
 
-let getFiles = function() {
+const getFiles = function() {
   $.ajax({
     url: globalObjects.baseUrl + '/files/',
     method: 'GET',
