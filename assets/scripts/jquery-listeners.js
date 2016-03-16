@@ -25,21 +25,23 @@ let crudActions = function() {
   // The Modal
   $('.files-container').on('click', '.update-file', function(e) {
     e.preventDefault();
+    // sets the editId in the global objects file
     globalObjects.editId = $(e.target).attr('data-id');
   });
   //The Button, which updates the file in MongoDB
   $('#update-form').on('submit', fileCrud.updateFile);
+// End Update modal and button
 
-
-// Start Delete Modal and Button
+// Start Delete modal and button
   // The Modal
   $('.files-container').on('click', '.delete-file', function(e) {
     e.preventDefault();
+    // sets the editId in the global objects file
     globalObjects.editId = $(e.target).attr('data-id');
   });
   // The Button, which deletes the file in the mongo db
   $('.delete-file-form').on('click', fileCrud.deleteFile);
-// End Delete Modal and Button
+// End Delete modal and button
 };
 
 $(document).ready(() => {
