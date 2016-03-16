@@ -13,6 +13,7 @@ $black: #000;
 $grey: #CCCCCC;
 $offgreen: #96AD3E;
 $box-hover: #878787;
+$dark-grey: #5A5E61;
 
 #about {
   background-color: $grey;
@@ -59,8 +60,9 @@ h3 {
 }
 
 label,
-.modal-title {
-  color: $grey;
+.modal-title,
+.delete-confirmation {
+  color: $dark-grey;
 }
 
 #contact {
