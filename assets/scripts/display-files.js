@@ -2,21 +2,6 @@
 
 const globalObjects = require('./global-objects');
 
-let displayFolders = function(folders){
-  let foldersTemplate = require('./folders.handlebars');
-  console.log("displayFolders was callled");
-  $('.files-container').append(foldersTemplate({ folders }));
-};
-
-// this function pulls the folder name from the S3 file url, or assigns "none" if it breaks
-const extractFolder = function(location) {
-  if ((location.split("/"))[3] === undefined) {
-    return "none";
-  } else {
-  return (location.split("/"))[3];
-  }
-};
-
 // takes an array of folders and removes duplicates
 const makeUnique = function(folders) {
   var uniqueFolders = folders.filter(function(elem, pos) {
@@ -25,31 +10,40 @@ const makeUnique = function(folders) {
   return uniqueFolders;
 };
 
-const assignFoldersTo = function (files) {
+// Iterates through all files, grabs all the folder names, removes duplicates.
+// Then, a folder object containing the folder name and an html tag-friendly version of the folder name to handlebars
+const displayFolders = function(files){
+  let foldersTemplate = require('./folders.handlebars');
   let folders = [];
   files.forEach(function(file) {
-    if (file.location === undefined) {
-      file.folder = "none";
+    if (file.folder === undefined) {
+      folders.push("Unsorted");
     } else {
-      file.folder = extractFolder(file.location);
-    }
     folders.push(file.folder);
+    }
   });
-    displayFolders(makeUnique(folders));
+  folders = makeUnique(folders);
+  let foldersInfo = folders.map(function(folder) {
+    return {nospaces: folder.replace(/\s+/g, '-').replace(/[^a-zA-Z-]/g, ''), foldertext: folder};
+  });
+  $('.files-container').append(foldersTemplate({ foldersInfo }));
 };
 
-// this function adds a folder key and value to each file
-let displayFiles = function(files){
-  assignFoldersTo(files);
+// If a file doesn't have a folder, assign Unsorted
+// append the file to a div with class matching its folder
+const displayFiles = function(files){
   let filesTemplate = require('./file-lister.handlebars');
   files.forEach(function(file) {
+    if (file.folder === undefined) {
+      file.folder = "Unsorted";
+    }
+    file.folder = file.folder.replace(/\s+/g, '-').replace(/[^a-zA-Z-]/g, '');
     $(`.${file.folder}`).append(filesTemplate({ file }));
-    // $('.files-container').html(filesTemplate({ file })); do we want append or html here since it runs for each file?
   });
 };
 
 
-let getFiles = function() {
+const getFiles = function() {
   $.ajax({
     url: globalObjects.baseUrl + '/files/',
     method: 'GET',
@@ -59,6 +53,7 @@ let getFiles = function() {
     dataType: 'json'
   }).done(function(response){
     console.log("this get was called");
+    displayFolders(response.files);
     displayFiles(response.files);
   }).fail(function(jqxhr) {
     console.error(jqxhr);
