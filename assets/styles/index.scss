@@ -58,6 +58,11 @@ h3 {
   clear: both;
 }
 
+label,
+.modal-title {
+  color: $grey;
+}
+
 #contact {
   background-color: $background;
   min-height: 400px;
