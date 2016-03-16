@@ -51,11 +51,11 @@ let displayFiles = function(files){
 
 let getFiles = function() {
   $.ajax({
-    url: 'http://localhost:3000' + '/files/',
+    url: globalObjects.baseUrl + '/files/',
     method: 'GET',
-    // headers: {
-    //   Authorization: 'Token token=' + globalObjects.user.token,
-    // },
+    headers: {
+      Authorization: 'Token token=' + globalObjects.user.token,
+    },
     dataType: 'json'
   }).done(function(response){
     console.log("this get was called");
