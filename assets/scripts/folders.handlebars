@@ -1,8 +1,8 @@
-{{#each folders}}
+{{#each foldersInfo}}
 <div class="folders-and-files">
-  <div class="folder-container"><h4>{{this}}</h4>
+  <div class="folder-container"><h4>{{this.foldertext}}</h4>
     <hr class="light">
-    <div class="{{this}}"></div>
+    <div class="{{this.nospaces}}"></div>
   </div>
 </div>
 {{/each}}

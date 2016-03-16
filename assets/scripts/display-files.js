@@ -12,12 +12,20 @@ const makeUnique = function(folders) {
 
 const displayFolders = function(files){
   let foldersTemplate = require('./folders.handlebars');
-  let folders = ["none"];
+  let folders = [];
   files.forEach(function(file) {
+    if (file.folder === undefined) {
+      folders.push("Unsorted");
+    } else {
     folders.push(file.folder);
+    }
   });
   folders = makeUnique(folders);
-  $('.files-container').append(foldersTemplate({ folders }));
+  let foldersInfo = folders.map(function(folder) {
+    return {nospaces: folder.replace(/\s+/g, ''), foldertext: folder};
+  });
+  console.log(foldersInfo);
+  $('.files-container').append(foldersTemplate({ foldersInfo }));
 };
 
 // this function adds a folder key and value to each file
@@ -25,9 +33,9 @@ let displayFiles = function(files){
   let filesTemplate = require('./file-lister.handlebars');
   files.forEach(function(file) {
     if (file.folder === undefined) {
-      file.folder = "none";
+      file.folder = "Unsorted";
     }
-    $(`.${file.folder}`).append(filesTemplate({ file }));
+    $(`.${file.folder.replace(/\s+/g, '')}`).append(filesTemplate({ file }));
   });
 };
 
