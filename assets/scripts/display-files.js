@@ -2,18 +2,6 @@
 
 const globalObjects = require('./global-objects');
 
-const splitFolderPath = function(file) {
-  return file.folder.split('/');
-};
-
-const foldersAtIndex = function(files, index) {
-  let folders = [];
-  files.forEach(function(file) {
-      folders.push(splitFolderPath(file)[index]);
-  });
-  return folders;
-};
-
 // takes an array of folders and removes duplicates
 const makeUnique = function(folders) {
   var uniqueFolders = folders.filter(function(elem, pos) {
@@ -21,6 +9,33 @@ const makeUnique = function(folders) {
   });
   return uniqueFolders;
 };
+
+const splitFolderPath = function(file) {
+  return file.folder.split('/');
+};
+
+var findChildren = function(fullFolderPath, files){
+  var children = [];
+  files.forEach(function(file){
+    if (file.folder.indexOf(fullFolderPath) === 0) {
+      children.push(file);
+    }
+  });
+  return children;
+};
+
+// sample data for testing
+// var files = [{ folder: 'food/fruit/bananas'},
+// { folder: 'food/fruit/cantaloupe'},
+// { folder: 'food/fruit/apples'},
+// { folder: 'food/veggies/carrot'},
+// { folder: 'food/veggies/celery'},
+// { folder: 'favorites/veggies/celery'}];
+
+console.log(findChildren('food/fruit', files));
+
+
+
 
 // Iterates through all files, grabs all the folder names, removes duplicates.
 // Then, a folder object containing the folder name and an html tag-friendly version of the folder name to handlebars
