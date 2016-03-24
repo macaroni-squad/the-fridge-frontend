@@ -2,6 +2,18 @@
 
 const globalObjects = require('./global-objects');
 
+const splitFolderPath = function(file) {
+  return file.folder.split('/');
+};
+
+const foldersAtIndex = function(files, index) {
+  let folders = [];
+  files.forEach(function(file) {
+      folders.push(splitFolderPath(file)[index]);
+  });
+  return folders;
+};
+
 // takes an array of folders and removes duplicates
 const makeUnique = function(folders) {
   var uniqueFolders = folders.filter(function(elem, pos) {
